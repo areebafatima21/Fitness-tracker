@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: anton;
+    }
+
+    html {
+        font-size: 17px;
+        /* This means 1rem = 16px */
+    }
+
+    .header-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .header-container h3 {
+        font-size: 0.75rem;
+    }
+
+    .header-container {
+        display: inline-block;
+        margin-top: 30px;
+        margin-left: 23px;
+    }
+
+    ul {
+        display: inline-flex;
+    }
+
+    img {
+        position: absolute;
+        right: 1px;
+        border-bottom-left-radius: 9900px;
+        border-bottom-right-radius: 5000px;
+        border-top-left-radius: 9900px;
+        bottom: 1px;
+        height: 80vh;
+        border-top-right-radius: 9900px;
+    }
+
+    nav {
+        padding: 10px;
+        margin-top: 30px;
+        position: absolute;
+        right: 1px;
+        top: 1px;
+    }
+
+    li {
+        display: inline;
+        margin-right: 31px;
+        font-size: 1.2rem;
+        padding: 0px 10px 0px 10px;
+    }
+
+    .heading {
+        margin-top: 90px;
+        display: inline-block;
+    }
+
+    label {
+        font-size: 1.563rem;
+        color: #532b24;
+    }
+
+    .container-box {
+        padding-top: 34px;
+        display: flex;
+        padding-bottom: 25px;
+    }
+
+    main {
+        margin-left: 23px;
+    }
+
+    h1 {
+        font-size: 2.813rem;
+    }
+
+    input#bers {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        font-size: 1.188rem;
+        width: -webkit-fill-available;
+        margin-right: 860px;
+    }
+
+    button#button {
+        position: absolute;
+        right: 869px;
+        bottom: 138px;
+
+        border: none;
+        background-color: #000000;
+        color: #ffffff;
+        cursor: pointer;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 19px;
+        width: 100px;
+    }
+
+    p#result {
+        margin-bottom: 58px;
+        font-size: 22px;
+    }
+
+    div.rating {
+        display: flex;
+        font-size: 1.188rem;
+    }
+
+    div .goal {
+        padding-left: 150px;
+    }
+
+    div .nutrition {
+        padding-left: 150px;
+    }
+
+    .heading span {
+        color: #2649b6;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+        transition: padding 0.3s;
+    }
+
+    a:hover {
+        background-color: #2649b6;
+        padding: 12px 18px;
+    }
+
+    button#button:hover {
+        background-color: orangered
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>PRO-FIT</h1>
+            <h3>FIT PULSE</h3>
+            <!--menu options-->
+            <nav>
+                <ul>
+                    <strong>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Trainer</a></li>
+                        <li><a href="#">Membership</a></li>
+                        <li><a href="#">Guide</a></li>
+                    </strong>
+                </ul>
+            </nav>
+        </div>
+
+    </header>
+    <main>
+        <section>
+            <!--div for main large heading-->
+            <div class="heading">
+                <h1>Make Fitness Your Daily Habbit <br> Trac Your Daily<span> Workout</span></h1>
+            </div>
+        </section>
+        <!--section for duration-->
+        <section>
+            <div class="container for input" style="
+            margin-top: 30px;">
+                <span> <label for="bers">Workout Duration</label></span>
+                <br>
+                <div class="container-box">
+                    <input type="text" placeholder="enter a number seprated by commas" name="bers" id="bers">
+                </div>
+                <button onclick="findLargestnum(number)" id="button">Check</button>
+                <strong>
+                    <p id="result"></p>
+                </strong>
+            </div>
+        </section>
+        <section>
+            <!--container for rating-->
+            <div class="rating">
+                <!--div for workout-->
+                <div class="workout">
+                    <h2><strong>9</strong></h2>
+                    <h4>Workout Sheets</h4>
+                </div>
+                <!--div for goals-->
+                <div class="goal">
+                    <h2><strong>20</strong></h2>
+                    <h4>Goal Challenges</h4>
+                </div>
+                <!--div for nutrition-->
+                <div class="nutrition">
+                    <h2><strong>+3</strong></h2>
+                    <h4>Nutrition Tracker</h4>
+                </div>
+                <!--div of first container ending-->
+            </div>
+
+            <!--DIV FOR IMAGE-->
+            <div class="image">
+                <svg>
+
+                </svg>
+                <img src="https://www.parsmuscle.com/wp-content/uploads/2024/05/parsmuscle-trainer-1.png">
+
+
+        </section>
+    </main>
+    <script>
+
+        document.getElementById("button").addEventListener("click", function findLargestnum(number) {
+            const input = document.getElementById("bers").value;
+            const ans = document.getElementById("result");
+
+
+
+            if (input.length === 0) {
+                alert("empty");
+                return;
+            } //will split where comma is and make it into array string from whole string and converti it into number
+            const numbers = input.split(",").map(Number);
+            if (numbers.some(isNaN)) {
+                alert("please enter valid numbers");
+                return;
+            }
+            let largest = numbers[0];
+            for (let i = 1; i < input.length; i++) {
+                if (numbers[i] > largest) {
+                    largest = numbers[i]
+                }
+
+            }
+            ans.textContent = ` The largest duration is ${largest}`;
+        });
+
+
+    </script>
+</body>
+
+</html>
